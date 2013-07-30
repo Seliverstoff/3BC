@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59B11222-30AA-4051-9F21-405C17FD81AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BBB</RootNamespace>
+    <AssemblyName>BBB</AssemblyName>
+    <ApplicationIcon>..\ico.ico</ApplicationIcon>
+    <PublishUrl>опубликовать\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Mono.Cairo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="gtk-gui\MainWindow.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CmdDialog.cs" />
+    <Compile Include="gtk-gui\BBB.CmdDialog.cs" />
+    <Compile Include="plugin\Renders.cs" />
+    <Compile Include="plugin\renderVue.cs" />
+    <Compile Include="plugin\renderBlender.cs" />
+    <Compile Include="plugin\renderModo.cs" />
+    <Compile Include="plugin\renderVray.cs" />
+    <Compile Include="About.cs" />
+    <Compile Include="gtk-gui\BBB.About.cs" />
+    <Compile Include="plugin\renderPixie.cs" />
+    <Compile Include="plugin\renderAS.cs" />
+    <Compile Include="plugin\renderAir.cs" />
+    <Compile Include="plugin\renderDlight.cs" />
+    <Compile Include="Help.cs" />
+    <Compile Include="gtk-gui\BBB.Help.cs" />
+    <Compile Include="ListEditor.cs" />
+    <Compile Include="gtk-gui\BBB.ListEditor.cs" />
+    <Compile Include="GUI\GUI_Blender.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Blender.cs" />
+    <Compile Include="GUI\GUI_Vue.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Vue.cs" />
+    <Compile Include="GUI\GUI_AS.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_AS.cs" />
+    <Compile Include="GUI\GUI_Modo.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Modo.cs" />
+    <Compile Include="GUI\GUI_Vray.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Vray.cs" />
+    <Compile Include="GUI\GUI_Pixie.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Pixie.cs" />
+    <Compile Include="GUI\GUI_Aqsis.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Aqsis.cs" />
+    <Compile Include="GUI\GUI_DLight.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_DLight.cs" />
+    <Compile Include="GUI\GUI_Air.cs" />
+    <Compile Include="gtk-gui\BBB.GUI_Air.cs" />
+    <Compile Include="plugin\renderAqsis.cs" />
+    <Compile Include="WindowHelp.cs" />
+    <Compile Include="gtk-gui\BBB.WindowHelp.cs" />
+    <Compile Include="GUI\GUI_renders.cs" />
+    <Compile Include="GUI\fileOpenDlg.cs" />
+    <Compile Include="gtk-gui\BBB.fileOpenDlg.cs" />
+    <Compile Include="EnumDefParam.cs" />
+    <Compile Include="GUI\regionArea.cs" />
+    <Compile Include="gtk-gui\BBB.regionArea.cs" />
+    <Compile Include="GUI\fileList.cs" />
+    <Compile Include="gtk-gui\BBB.fileList.cs" />
+    <Compile Include="GUI\DrawingCorners.cs" />
+    <Compile Include="GUI\imageSize.cs" />
+    <Compile Include="gtk-gui\BBB.imageSize.cs" />
+    <Compile Include="GUI\frameRange.cs" />
+    <Compile Include="gtk-gui\BBB.frameRange.cs" />
+    <Compile Include="FileListEditor.cs" />
+    <Compile Include="gtk-gui\BBB.FileListEditor.cs" />
+    <Compile Include="RegionEditor.cs" />
+    <Compile Include="gtk-gui\BBB.RegionEditor.cs" />
+    <Compile Include="GUI\DrawingRegion.cs" />
+    <Compile Include="SplashScreen.cs" />
+    <Compile Include="gtk-gui\BBB.SplashScreen.cs" />
+    <Compile Include="GUI\comboList.cs" />
+    <Compile Include="gtk-gui\BBB.comboList.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="BBB.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>
