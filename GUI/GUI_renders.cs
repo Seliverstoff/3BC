@@ -33,8 +33,13 @@ namespace BBB
 		public String settingsValue = String.Empty;
 		public Dictionary<String, String> defolt_param = new Dictionary<String, String> ();
 		public Boolean renderEnable = true;
+		public int _start { set; get; }
+		public int _end { set; get; }
+		public int _jamp { set; get; }
+		public int _step { set; get; }
 
 		public event EventHandler ChangeWidget;
+		public event EventHandler ChangeFrameRate;
 		
 		public GUI_renders ()
 		{
@@ -46,7 +51,13 @@ namespace BBB
 				ChangeWidget (this, e);
 			}
 		}
-		
+
+		protected virtual void OnChangeFrameRate(EventArgs e){
+			if (ChangeFrameRate != null) {
+				ChangeFrameRate (this, e);
+			}
+		}
+
 	}
 }
 

@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>BBB</RootNamespace>
     <AssemblyName>BBB</AssemblyName>
-    <ApplicationIcon>..\ico.ico</ApplicationIcon>
+    <ApplicationIcon>ico.ico</ApplicationIcon>
     <PublishUrl>опубликовать\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>

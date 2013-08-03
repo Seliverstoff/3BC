@@ -1,48 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GUI\comboList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\render\Documents\GitHub\3BC\MainWindow.cs">
     <Files>
-      <File FileName="c:\Users\render\Documents\GitHub\3BC\MainWindow.cs" Line="1" Column="1" />
-      <File FileName="Program.cs" Line="23" Column="1" />
-      <File FileName="RegionEditor.cs" Line="21" Column="83" />
-      <File FileName="SplashScreen.cs" Line="21" Column="83" />
-      <File FileName="WindowHelp.cs" Line="16" Column="1" />
-      <File FileName="ListEditor.cs" Line="21" Column="83" />
-      <File FileName="Help.cs" Line="38" Column="1" />
-      <File FileName="FileListEditor.cs" Line="21" Column="83" />
-      <File FileName="EnumDefParam.cs" Line="21" Column="83" />
-      <File FileName="CmdDialog.cs" Line="41" Column="64" />
-      <File FileName="BBB.exe.config" Line="1" Column="1" />
-      <File FileName="About.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderVue.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderVray.cs" Line="21" Column="83" />
-      <File FileName="plugin\Renders.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderPixie.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderModo.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderDlight.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderBlender.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderAS.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderAqsis.cs" Line="21" Column="83" />
-      <File FileName="plugin\renderAir.cs" Line="21" Column="83" />
-      <File FileName="GUI\regionArea.cs" Line="21" Column="83" />
-      <File FileName="GUI\imageSize.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Vue.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Vray.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_renders.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Pixie.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Modo.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_DLight.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Blender.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_AS.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Aqsis.cs" Line="21" Column="83" />
-      <File FileName="GUI\frameRange.cs" Line="21" Column="83" />
-      <File FileName="GUI\GUI_Air.cs" Line="21" Column="83" />
-      <File FileName="GUI\fileOpenDlg.cs" Line="21" Column="83" />
-      <File FileName="GUI\fileList.cs" Line="21" Column="83" />
-      <File FileName="GUI\DrawingRegion.cs" Line="21" Column="83" />
-      <File FileName="GUI\DrawingCorners.cs" Line="21" Column="83" />
-      <File FileName="GUI\comboList.cs" Line="1" Column="32" />
+      <File FileName="c:\Users\render\Documents\GitHub\3BC\MainWindow.cs" Line="100" Column="62" />
+      <File FileName="GUI\GUI_renders.cs" Line="1" Column="1" />
+      <File FileName="GUI\GUI_Blender.cs" Line="385" Column="4" />
+      <File FileName="GUI\frameRange.cs" Line="91" Column="4" />
+      <File FileName="GUI\GUI_Vray.cs" Line="222" Column="40" />
+      <File FileName="GUI\GUI_Vue.cs" Line="141" Column="40" />
+      <File FileName="GUI\GUI_AS.cs" Line="225" Column="40" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="BBB" expanded="True">
+            <Node name="GUI" expanded="True" />
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

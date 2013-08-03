@@ -176,7 +176,7 @@ namespace BBB
 			w20.XOptions = ((global::Gtk.AttachOptions)(4));
 			w20.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table3.Gtk.Table+TableChild
-			this.spinbutton_step_task = new global::Gtk.SpinButton (0D, 1000D, 1D);
+			this.spinbutton_step_task = new global::Gtk.SpinButton (1D, 1000D, 1D);
 			this.spinbutton_step_task.CanFocus = true;
 			this.spinbutton_step_task.Name = "spinbutton_step_task";
 			this.spinbutton_step_task.Adjustment.PageIncrement = 10D;

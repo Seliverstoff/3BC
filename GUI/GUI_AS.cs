@@ -218,6 +218,11 @@ namespace BBB
 
 		protected void OnFramerangeChangeWidget (object sender, EventArgs e)
 		{
+			_start = framerange._start;
+			_end = framerange._end;
+			_jamp = framerange._jamp;
+			_step = framerange._step;
+			OnChangeFrameRate (EventArgs.Empty);
 			Calc ();
 		}
 

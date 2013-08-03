@@ -19,9 +19,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //  All Rights Reserved. Backburner(R) is a registered trademark of Autodesk, Inc.
-  
-
-
 
 
 using System;
@@ -70,10 +67,6 @@ public partial class MainWindow: Gtk.Window
 		entry_cmdjob_path.Text = System.Configuration.ConfigurationManager.AppSettings["bb_path"];
 		entry_list_path.Text = System.Configuration.ConfigurationManager.AppSettings["list_path"];
 		entry_bat_path.Text = System.Configuration.ConfigurationManager.AppSettings["bat_path"];
-		spin_start_frame.Value = int.Parse (System.Configuration.ConfigurationManager.AppSettings ["default_start_frame"]);
-		spin_end_frame.Value = int.Parse (System.Configuration.ConfigurationManager.AppSettings ["default_end_frame"]);
-		spin_step_frame.Value = int.Parse (System.Configuration.ConfigurationManager.AppSettings ["default_step_frame"]);
-		//default_timeout
 
 		strGroup = System.Configuration.ConfigurationManager.AppSettings["group"];
 		strServers = System.Configuration.ConfigurationManager.AppSettings["servers"];
@@ -99,10 +92,8 @@ public partial class MainWindow: Gtk.Window
 		gui_vray.SetDef (vray_def_param);
 		gui_vue.SetDef (vue_def_param);
 		gui_as.SetDef (as_def_param);
-
-		UpdateList (true);
+		
 		UpdateBat ();
-
 	}
 
 	protected void CreateDefParam(){
@@ -443,11 +434,11 @@ public partial class MainWindow: Gtk.Window
 		}
 
 		if(engineName!=String.Empty){
-			Console.WriteLine ("engineName = "+engineName);
+			//Console.WriteLine ("engineName = "+engineName);
 			cmdArg += render.engine [engineName].atr_scene_file.Replace ("%X%", entry_scene_path.Text);
 			cmdArg += " " + GUI_render_settings_list [engineName].argStr[0];
 			if(GUI_render_settings_list[engineName].renderEnable==true){
-				if(spin_step_frame.Value>1){
+				if(GUI_render_settings_list[engineName]._step>1){
 					tmpStr = render.engine [engineName].atr_range_frame;
 					tmpStr = tmpStr.Replace("%X%", "%tp2");
 					tmpStr = tmpStr.Replace("%Y%", "%tp3");
@@ -476,17 +467,31 @@ public partial class MainWindow: Gtk.Window
 
 	private void UpdateList(Boolean refs)
 	{
+		Console.WriteLine ("update list");
+	
+
+		if(engineName!=String.Empty){
+
 		if(checkbutton_list_refrash.Active || refs==false){
 			textview_list_out.Buffer.Text = String.Empty;
 		}
 		
-		int start = Convert.ToInt32(spin_start_frame.Value);
-		int end = Convert.ToInt32(spin_end_frame.Value);
-		int step = Convert.ToInt32(spin_step_frame.Value);
+		int start = GUI_render_settings_list [engineName]._start;
+		int end = GUI_render_settings_list [engineName]._end;
+		int step = GUI_render_settings_list [engineName]._step;
+		int jamp = GUI_render_settings_list [engineName]._jamp;
+
 		int task = 0;
 		int _s = 0;
 		int _e = 0;
+
 		String ListOut = String.Empty;
+
+		Console.WriteLine("start = " + start + ", end = " + end + ", jamp=" + jamp + ", step = " + step);
+
+			if (step <= 0) {
+				step = 1;
+			}
 
 		for (int i = start; i <= end; i=i+step) {
 			task += 1;
@@ -497,23 +502,23 @@ public partial class MainWindow: Gtk.Window
 				_e = end;
 			}
 
-			if(spin_step_frame.Value>1){
+			if(step>1){
 
-				if (i == (end-1)) {
-					ListOut += "Task - " + (task+1) + "("+ (_e-1) + "-"+ _e +")"+"\t"+(_e-1)+"\t"+_e+"\n";
-				}else{
-					ListOut += "Task - " + task + "("+ _s + "-"+ _e +")"+"\t"+_s+"\t"+_e+"\n";
-				}
+					if (i == (end-1)) {
+						ListOut += "Task - " + (task+1) + "("+ (_e-1) + "-"+ _e +")"+"\t"+(_e-1)+"\t"+_e+"\n";
+					}else{
+						ListOut += "Task - " + task + "("+ _s + "-"+ _e +")"+"\t"+_s+"\t"+_e+"\n";
+					}
 
 			}else{
 
-				if (i == (end-1)) {
-					ListOut += "Task - " + (task+1) + "("+ _e +")"+"\t"+_e+"\n";
-				}else{
-					ListOut += "Task - " + task + "("+ _e +")"+"\t"+_e+"\n";
-				}
-
+					if (i == (end-1)) {
+						ListOut += "Task - " + (task+1) + "("+ _e +")"+"\t"+_e+"\n";
+					}else{
+						ListOut += "Task - " + task + "("+ _e +")"+"\t"+_e+"\n";
+					}
 			}
+
 		}
 
 		if(checkbutton_list_refrash.Active || refs==false){
@@ -528,6 +533,10 @@ public partial class MainWindow: Gtk.Window
 			clearAction_list.Sensitive = false;
 		}
 	
+
+		}
+
+
 	}
 
 	protected void OnSpinStartFrameChanged (object sender, EventArgs e)
@@ -547,26 +556,7 @@ public partial class MainWindow: Gtk.Window
 
 	private void CheckPins()
 	{
-		if(spin_start_frame.Value>=spin_end_frame.Value){
-			spin_start_frame.Value = spin_end_frame.Value - 1;
-		}
-
-		if(spin_end_frame.Value<=spin_start_frame.Value){
-			spin_end_frame.Value = spin_start_frame.Value + 1;
-		}
-
-		if((spin_end_frame.Value-spin_start_frame.Value)<=spin_step_frame.Value){
-			spin_step_frame.Value = (spin_end_frame.Value - spin_start_frame.Value);
-		}
-
-		if(spin_step_frame.Value==0){
-			spin_step_frame.Value = 1;
-		}
-
-		//if(spin_step_frame.Value==1){
-			UpdateBat ();
-		//}
-		
+		UpdateBat ();
 		UpdateList (true);
 	}
 
@@ -644,6 +634,7 @@ public partial class MainWindow: Gtk.Window
 		SaveAppSettings ("default_renders", Convert.ToString(combobox_render.Active));
 		GtkLabel_render_settings.LabelProp = "Настройки рендера (" + render.engine[engineName].engineName + ")";
 		ShowGuiSettings (engineName);
+		UpdateList (true);
 		//render.engine [engineName].GUI_Settings ();
 	}
 
@@ -657,6 +648,7 @@ public partial class MainWindow: Gtk.Window
 				kvp.Value.Visible = false;
 			}
 		}
+
 
 	}
 	
@@ -727,5 +719,25 @@ public partial class MainWindow: Gtk.Window
 	{
 		UpdateBat ();
 		UpdateDefParam ();
+	}
+
+	protected void OnGuiBlenderChangeFrameRate (object sender, EventArgs e)
+	{
+		UpdateList (true);
+	}
+
+	protected void OnGuiVrayChangeFrameRate (object sender, EventArgs e)
+	{
+		UpdateList (true);
+	}
+
+	protected void OnGuiVueChangeFrameRate (object sender, EventArgs e)
+	{
+		UpdateList (true);
+	}
+
+	protected void OnGuiAsChangeFrameRate (object sender, EventArgs e)
+	{
+		UpdateList (true);
 	}
 }
